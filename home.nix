@@ -12,6 +12,7 @@ in
     ./modules/user/wm/hyprland.nix
     ./modules/user/apps/neovim.nix
     ./modules/user/apps/git.nix
+    ./modules/user/apps/terminal.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
