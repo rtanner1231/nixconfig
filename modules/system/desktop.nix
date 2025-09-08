@@ -1,21 +1,25 @@
 { lib, config, ... }:
-
-with lib;
 let
-  cfg = config.desktop;
+  cfg=config.desktop;
 in
 {
   # Create a custom option for our desktop switch
-  options.desktop.environment = mkOption {
-    type = types.enum [ "kde" "gnome" "hyprland" ];
-    default = "kde"; # <-- CHANGE YOUR DESKTOP HERE
+  options.desktop.environment = lib.mkOption {
+    type = lib.types.enum [ "kde" "gnome" "hyprland" ];
+    default = "kde"; 
     description = "The desktop environment to use.";
   };
 
   # Conditionally import the correct desktop module
   imports = [
-    (mkIf (cfg.environment == "kde") ./wm/kde.nix)
-    (mkIf (cfg.environment == "gnome") ./wm/gnome.nix)
-    (mkIf (cfg.environment == "hyprland") ./wm/hyprland.nix)
+    ./wm/kde.nix
+    ./wm/gnome.nix
+    ./wm/hyprland.nix
   ];
+
+  config = {
+     desktop.kde.enable = lib.mkIf (cfg.environment=="kde") true;
+     desktop.gnome.enable = lib.mkIf (cfg.environment=="gnome") true;
+     desktop.hyprland.enable = lib.mkIf (cfg.environment=="hyprland") true;
+  };
 }

@@ -1,12 +1,16 @@
-{ config, pkgs, ... }:
+{ config, lib,pkgs, ... }:
 
 # This gets the desktop choice from your system config (`desktop.nix`)
-let desktop = config.desktop.environment;
+let 
+desktop = config.desktop.environment;
 in
 {
   # Import the correct home-manager module based on the desktop choice
   imports = [
-    ./modules/user/wm/${desktop}.nix
+    ./modules/user/wm/kde.nix
+    ./modules/user/wm/gnome.nix
+    ./modules/user/wm/hyprland.nix
+    ./modules/user/apps/neovim.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

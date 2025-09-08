@@ -1,16 +1,19 @@
-{ pkgs, ... }: {
-  # KDE-specific packages
-  home.packages = with pkgs; [
-    konsole
-    dolphin
-    spectacle
-    kate
-  ];
+{ pkgs, lib, osConfig,... }: {
+  config= lib.mkIf (osConfig.desktop.environment=="kde") {
 
-  # Example of KDE theme configuration (optional)
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-    style.name = "breeze";
+	  # KDE-specific packages
+	  home.packages = with pkgs; [
+	    kdePackages.konsole
+	    kdePackages.dolphin
+	    kdePackages.spectacle
+	    kdePackages.kate
+	  ];
+
+	  # Example of KDE theme configuration (optional)
+	  qt = {
+	    enable = true;
+	    platformTheme = "kde";
+	    style.name = "breeze";
+	  };
   };
 }
