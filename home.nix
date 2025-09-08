@@ -13,6 +13,7 @@ in
     ./modules/user/apps/neovim.nix
     ./modules/user/apps/git.nix
     ./modules/user/apps/terminal.nix
+    ./modules/user/apps/nodejs.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -29,6 +30,7 @@ in
     fd
     ripgrep
     fzf
+        prefetch-npm-deps
   ];
 
   fonts.fontconfig.enable = true;
