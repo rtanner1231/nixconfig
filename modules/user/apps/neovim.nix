@@ -1,4 +1,4 @@
-{config,pkgs,...}
+{config,pkgs,...}:
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
@@ -11,10 +11,11 @@ in
 	bash-language-server
 	sqls
 	yaml-language-server
+        clang-tools
   ];
 
-  xdg.configFile={
-	source=create_symlink "${dotfiles}/.config/nvim;
+  xdg.configFile."nvim"={
+	source=create_symlink "${dotfiles}/.config/nvim";
 	recursive = true;
   }; 
 

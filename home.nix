@@ -11,6 +11,7 @@ in
     ./modules/user/wm/gnome.nix
     ./modules/user/wm/hyprland.nix
     ./modules/user/apps/neovim.nix
+    ./modules/user/apps/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -22,7 +23,14 @@ in
   home.packages = with pkgs; [
     firefox
     htop
+    nerd-fonts.fira-code
+    cargo
+    fd
+    ripgrep
+    fzf
   ];
+
+  fonts.fontconfig.enable = true;
 
   # Nicely reload systemd units when changing configs.
   systemd.user.startServices = "sd-switch";
