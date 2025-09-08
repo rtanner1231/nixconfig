@@ -7,6 +7,9 @@ in
     home.packages=with pkgs; [
         ghostty
         tmux
+        fish
+        starship
+        zoxide
     ];
 
     xdg.configFile."tmux"={
@@ -18,5 +21,13 @@ in
         source=create_symlink "${dotfiles}/.config/ghostty";
         recursive = true;
     };
+
+    xdg.configFile."fish"={
+        source=create_symlink "${dotfiles}/.config/fish";
+        recursive = true;
+    };
+
+    xdg.configFile."starship.toml".source=create_symlink "${dotfiles}/.config/starship.toml";
+
 
 }
