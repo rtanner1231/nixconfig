@@ -10,10 +10,10 @@ in
     typescript-language-server
     bash-language-server
     sqls
-    nixd # nix LSP
+    nil # nix LSP
     yaml-language-server
     clang-tools
-    nixfmt-rfc-style
+    nixfmt-rfc-style # nix formatter
   ];
 
   xdg.configFile."nvim" = {
