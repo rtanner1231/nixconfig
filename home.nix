@@ -31,6 +31,7 @@ in
     ripgrep
     fzf
         prefetch-npm-deps
+    openjdk
   ];
 
   fonts.fontconfig.enable = true;

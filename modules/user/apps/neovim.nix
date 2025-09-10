@@ -1,22 +1,24 @@
-{config,pkgs,...}:
+{ config, pkgs, ... }:
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 in
 {
-  home.packages=with pkgs; [
-	neovim
-	lua-language-server
-	typescript-language-server
-	bash-language-server
-	sqls
-	yaml-language-server
-        clang-tools
+  home.packages = with pkgs; [
+    neovim
+    lua-language-server
+    typescript-language-server
+    bash-language-server
+    sqls
+    nixd # nix LSP
+    yaml-language-server
+    clang-tools
+    nixfmt-rfc-style
   ];
 
-  xdg.configFile."nvim"={
-	source=create_symlink "${dotfiles}/.config/nvim";
-	recursive = true;
-  }; 
+  xdg.configFile."nvim" = {
+    source = create_symlink "${dotfiles}/.config/nvim";
+    recursive = true;
+  };
 
 }
