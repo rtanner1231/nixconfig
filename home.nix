@@ -37,6 +37,7 @@ in
     fzf
     prefetch-npm-deps
     openjdk
+    gh
   ];
 
   fonts.fontconfig.enable = true;
