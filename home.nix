@@ -1,8 +1,13 @@
-{ config, lib,pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 # This gets the desktop choice from your system config (`desktop.nix`)
-let 
-desktop = config.desktop.environment;
+let
+  desktop = config.desktop.environment;
 in
 {
   # Import the correct home-manager module based on the desktop choice
@@ -30,7 +35,7 @@ in
     fd
     ripgrep
     fzf
-        prefetch-npm-deps
+    prefetch-npm-deps
     openjdk
   ];
 

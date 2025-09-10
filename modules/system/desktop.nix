@@ -1,12 +1,16 @@
 { lib, config, ... }:
 let
-  cfg=config.desktop;
+  cfg = config.desktop;
 in
 {
   # Create a custom option for our desktop switch
   options.desktop.environment = lib.mkOption {
-    type = lib.types.enum [ "kde" "gnome" "hyprland" ];
-    default = "kde"; 
+    type = lib.types.enum [
+      "kde"
+      "gnome"
+      "hyprland"
+    ];
+    default = "kde";
     description = "The desktop environment to use.";
   };
 
@@ -18,8 +22,8 @@ in
   ];
 
   config = {
-     desktop.kde.enable = lib.mkIf (cfg.environment=="kde") true;
-     desktop.gnome.enable = lib.mkIf (cfg.environment=="gnome") true;
-     desktop.hyprland.enable = lib.mkIf (cfg.environment=="hyprland") true;
+    desktop.kde.enable = lib.mkIf (cfg.environment == "kde") true;
+    desktop.gnome.enable = lib.mkIf (cfg.environment == "gnome") true;
+    desktop.hyprland.enable = lib.mkIf (cfg.environment == "hyprland") true;
   };
 }

@@ -5,13 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/system/desktop.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/system/desktop.nix
+  ];
 
-  desktop.environment="gnome";
+  desktop.environment = "gnome";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,14 +85,20 @@
   users.users.rick = {
     isNormalUser = true;
     description = "Rick";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       #kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
-  nix.settings.experimental-features=["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Install firefox.
   # programs.firefox.enable = true;
@@ -103,12 +109,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-	git
-	vim
-	wget	
-        clang
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    git
+    vim
+    wget
+    clang
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
