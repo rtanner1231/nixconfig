@@ -17,6 +17,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.systemd.enable = true;
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -58,6 +60,8 @@
     layout = "us";
     variant = "";
   };
+
+  services.dbus.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -106,6 +110,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -115,6 +121,8 @@
     vim
     wget
     clang
+    libsecret
+    seahorse
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -12,6 +12,8 @@
     # Hyprland is a wayland compositor, so we don't need X11
     services.xserver.enable = false;
     services.displayManager.sddm.wayland.enable = true;
+    security.pam.services.sddm.enableGnomeKeyring = true;
+
     # Enable Hyprland
     programs.hyprland.enable = true;
 
