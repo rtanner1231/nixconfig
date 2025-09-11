@@ -39,6 +39,11 @@ in
     prefetch-npm-deps
     openjdk
     gh
+    thunderbird
+    postman
+    fastfetch
+    jq
+    tree
   ];
 
   fonts.fontconfig.enable = true;
