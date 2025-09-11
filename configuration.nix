@@ -36,7 +36,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.sessionVariables = {
-    SUITECLOUD_FALLBACK_PASSKEY = "$(secret-tool lookup service sdfcli)";
+    SUITECLOUD_FALLBACK_PASSKEY = "$(secret-tool lookup service sdfcli)"; # Use GenerateSDFPasskey.sh to generate the key
   };
 
   i18n.extraLocaleSettings = {
