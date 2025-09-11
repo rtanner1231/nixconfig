@@ -35,6 +35,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  environment.sessionVariables = {
+    SUITECLOUD_FALLBACK_PASSKEY = "$(secret-tool lookup service sdfcli)";
+  };
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
