@@ -11,7 +11,7 @@
     ./modules/system/desktop.nix
   ];
 
-  desktop.environment = "gnome";
+  desktop.environment = "hyprland";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

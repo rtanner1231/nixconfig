@@ -9,6 +9,8 @@
   options.desktop.hyprland.enable = lib.mkEnableOption "the Hyperland Desktop Environment";
 
   config = lib.mkIf (config.desktop.environment == "hyprland") {
+    # Required to make the SDF cli work
+    services.gvfs.enable = true;
     # Hyprland is a wayland compositor, so we don't need X11
     services.xserver.enable = false;
     services.displayManager.sddm.wayland.enable = true;
