@@ -44,6 +44,7 @@ in
     fastfetch
     jq
     tree
+    fastfetch
   ];
 
   fonts.fontconfig.enable = true;
